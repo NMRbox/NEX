@@ -271,7 +271,7 @@ Text field used to report additional information relevant to the software.
         _Vendor.Address                                                                                     
         _Vendor.Electronic_address                                                                                                                                                          
 
-        'Adam Schuyler - NMRbox' 'UConn Health / UW' 'schuyler@uchc.edu' 
+        'John - Example' 'Example.org' 'john@example.org' 
                                                 
     stop_                                                                                               
 
