@@ -18,7 +18,7 @@ save_FID_sampling
     _FID_sampling.Software_name		'schedule generator'                          
 
     _FID_sampling.Experiment_name                          HN-HSQC
-    _FID_sampling.Dimension_count                          2                                                
+    _FID_sampling.Layout_dimension_count                   2                                                
     _FID_sampling.Layout_hypercomplex_component_type       full                                            
     _FID_sampling.Layout_transient_type                    uniform                                         
     _FID_sampling.Expt_quadrature_class                    na                                              
