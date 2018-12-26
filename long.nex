@@ -123,17 +123,27 @@ save_
 save_experiment_parameters          # This save frame is used to capture information
                                     # specific to an experiment that uses the NUS
                                     # schedule defined above.
+			
+   _NMR_spec_expt.Sf_category		?	# added
+   _NMR_spec_expt.ID			1	# added
+   _NMR_spec_expt.Name			HNCO	# added
+   
+   loop
+     _NMR_experiment_file.Name                     
+     _NMR_experiment_file.Type                    
+     _NMR_experiment_file.Directory_path         
+     _NMR_experiment_file.Byte_order             
+     _NMR_experiment_file.Bytes_per_data_point    
+     _NMR_experiment_file.File_header_size        
+     _NMR_experiment_file.Record_header_size      
+     _NMR_experiment_file.Record_trailer_size      
+     _NMR_experiment_file.Compression_algorithm   
+     _NMR_experiment_file.Details                 
 
-   _NMR_experiment_file.Name                      HNCO
-   _NMR_experiment_file.Type                      na
-   _NMR_experiment_file.Directory_path            na
-   _NMR_experiment_file.Byte_order               ‘little endian’
-   _NMR_experiment_file.Bytes_per_data_point      4
-   _NMR_experiment_file.File_header_size          na
-   _NMR_experiment_file.Record_header_size        na
-   _NMR_experiment_file.Record_trailer_size       na
-   _NMR_experiment_file.Compression_algorithm     na
-   _NMR_experiment_file.Details                   
+	HNCO	na	na	'little endian'	4	na	na	na	na
+	
+    stop_
+    
 ;
 Text field used to report additional information relevant to the specific experiment.
 ;
