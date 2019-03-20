@@ -1,0 +1,97 @@
+data_NUS_schedule
+
+##################################################
+save_NEX_format_information
+
+        _NEX.Sf_category                   NEX_information
+        _NEX.Format_version                0.54
+        _NEX.Format_date                   2017-02-21
+	
+save_
+	
+##################################################
+save_FID_sampling
+
+    _FID_sampling.Sf_category              FID_sampling                                    
+    _FID_sampling.ID                       1                           
+
+    _FID_sampling.Experiment_name                          'NOESY_HSQC'
+    _FID_sampling.Layout_dimension_count                   3                                                            
+    _FID_sampling.Layout_hypercomplex_component_type       full                                            
+    _FID_sampling.Layout_transient_type                    uniform                                         
+    _FID_sampling.Expt_quadrature_class                    na  			# What is this?                                            
+    _FID_sampling.Expt_redfield_trick                      no                                             
+
+
+    loop_            # Keep schedule base parameters and values in one loop.
+        _FID_sampling_base.Spectral_dim       
+        _FID_sampling_base.Parameter
+        _FID_sampling_base.Parameter_value
+        _FID_sampling_base.Param_tag
+
+         2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
+         2         time_multiplier     0.0001429        na   
+         2         time_offset         0                na 
+         2         time_units          sec              na 
+         2         phase_series_type   linear          ‘_Schedule.Phase_index_dim2’
+         2         phase_multiplier    90               na 
+         2         phase_offset        0                na 
+         2         phase_units         degree           na 
+		 3         time_series_type    linear          ‘_Schedule.Time_index_dim3’
+         3         time_multiplier     0.0007576        na   
+         3         time_offset         0                na 
+         3         time_units          sec              na 
+         3         phase_series_type   linear          ‘_Schedule.Phase_index_dim3’
+         3         phase_multiplier    90               na 
+         3         phase_offset        0                na 
+         3         phase_units         degree           na 
+
+    stop_
+
+   
+    loop_       # This is the table that contains the NUS schedule
+                                                                                             
+        _Schedule.FID_ID                                                                                   
+        _Schedule.Time_index_dim2     
+        _Schedule.Phase_index_dim2                                                                             
+        _Schedule.Time_index_dim3     
+        _Schedule.Phase_index_dim3 
+        _Schedule.Transient_count
+        _Schedule.FID_weight                       
+
+		1	0  	0	0	1	1.0
+		2	6  	1	0	1	1.0
+		3	15 	0	0	1	1.0
+		4	20 	1	0	1	1.0
+		5	23 	0	0	1	1.0
+		6	35 	1	0	1	1.0
+		7	37 	0	0	1	1.0
+		8	40 	1	0	1	1.0
+		9	43 	0	0	1	1.0
+		10	51 	1	0	1	1.0
+		11	52 	0	0	1	1.0
+		12	60 	1	0	1	1.0
+		13	64 	0	0	1	1.0
+		14	66 	1	0	1	1.0
+		15	69 	0	0	1	1.0
+		16	4  	1	1	1	1.0
+		17	6  	0	1	1	1.0
+		18	15 	1	1	1	1.0
+		19	16 	0	1	1	1.0
+		20	21 	1	1	1	1.0
+		21	24 	0	1	1	1.0
+		22	29 	1	1	1	1.0
+		23	31 	0	1	1	1.0
+		24	33 	1	1	1	1.0
+		25	35 	0	1	1	1.0
+		26	37 	1	1	1	1.0
+		27	39 	0	1	1	1.0
+		28	41 	1	1	1	1.0
+		29	49 	0	1	1	1.0
+		30	56 	1	1	1	1.0
+		31	59 	0	1	1	1.0
+		32	67 	1	1	1	1.0
+  
+    stop_                                                                                               
+
+save_
