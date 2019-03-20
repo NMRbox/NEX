@@ -1,0 +1,87 @@
+data_NUS_schedule
+
+##################################################
+save_NEX_format_information
+
+        _NEX.Sf_category                   NEX_information
+        _NEX.Format_version                0.54
+        _NEX.Format_date                   2017-02-21
+	
+save_
+	
+##################################################
+save_FID_sampling
+
+    _FID_sampling.Sf_category              FID_sampling                                    
+    _FID_sampling.ID                       1                           
+
+    _FID_sampling.Experiment_name                          'C2HSQC'
+    _FID_sampling.Layout_dimension_count                   2                                                            
+    _FID_sampling.Layout_hypercomplex_component_type       full                                            
+    _FID_sampling.Layout_transient_type                    uniform                                         
+    _FID_sampling.Expt_quadrature_class                    na  			# What is this?                                            
+    _FID_sampling.Expt_redfield_trick                      no                                             
+
+
+    loop_            # Keep schedule base parameters and values in one loop.
+        _FID_sampling_base.Spectral_dim       
+        _FID_sampling_base.Parameter
+        _FID_sampling_base.Parameter_value
+        _FID_sampling_base.Param_tag
+
+         2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
+         2         time_multiplier     0.0000497        na   
+         2         time_offset         0                na 
+         2         time_units          sec              na 
+         2         phase_series_type   linear          ‘_Schedule.Phase_index_dim2’
+         2         phase_multiplier    90               na 
+         2         phase_offset        0                na 
+         2         phase_units         degree           na 
+
+    stop_
+
+   
+    loop_       # This is the table that contains the NUS schedule
+                                                                                             
+        _Schedule.FID_ID                                                                                   
+        _Schedule.Time_index_dim2     
+        _Schedule.Phase_index_dim2 
+        _Schedule.Transient_count
+        _Schedule.FID_weight                       
+
+		1	  0	0	1	1.0
+		2	  5	1	1	1.0
+		3	  8	0	1	1.0
+		4	 21	1	1	1.0
+		5	 23	0	1	1.0
+		6	 25	1	1	1.0
+		7	 27	0	1	1.0
+		8	 28	1	1	1.0
+		9	 35	0	1	1.0
+		10	 38	1	1	1.0
+		11	 41	0	1	1.0
+		12	 43	1	1	1.0
+		13	 44	0	1	1.0
+		14	 46	1	1	1.0
+		15	 50	0	1	1.0
+		16	 51	1	1	1.0
+		17	 57	0	1	1.0
+		18	 65	1	1	1.0
+		19	 68	0	1	1.0
+		20	 70	1	1	1.0
+		21	 75	0	1	1.0
+		22	 77	1	1	1.0
+		23	 79	0	1	1.0
+		24	 90	1	1	1.0
+		25	 91	0	1	1.0
+		26	 99	1	1	1.0
+		27	102	0	1	1.0
+		28	105	1	1	1.0
+		29	110	0	1	1.0
+		30	114	1	1	1.0
+		31	120	0	1	1.0
+		32	124	1	1	1.0
+  
+    stop_                                                                                               
+
+save_
