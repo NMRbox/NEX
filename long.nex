@@ -35,7 +35,7 @@ save_FID_sampling
         _FID_sampling_base.Param_tag
 
          2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
-         2         time_multiplier     0.000010         na   
+         2         time_multiplier     0.000125         na   
          2         time_offset         0                na 
          2         time_units          sec              na 
          2         phase_series_type   lookup          ‘_Schedule.Phase_index_dim2’
@@ -45,7 +45,7 @@ save_FID_sampling
      2         details             ?                na 
 
          3         time_series_type    linear          ‘_Schedule.Time_index_dim3’
-         3         time_multiplier     0.000010         na     
+         3         time_multiplier     0.000250         na     
          3         time_offset         0                na 
          3         time_units          sec              na 
          3         phase_series_type   value           ‘_Schedule.Phase_value_dim3’
@@ -183,7 +183,7 @@ Text field used to report additional information relevant to the specific experi
          2         obs_freq_MHz_at_center           na
          2         obs_freq_at 0ppm                 na
          2         ppm_at_center                    na
-         2         zero_order_phase_corr            -50.0           
+         2         zero_order_phase_corr            0.0           
          2         first_order_phase_corr           0.0             
          2         nucleus                          15N
          2         label                            N
@@ -194,8 +194,8 @@ Text field used to report additional information relevant to the specific experi
          3         obs_freq_MHz_at_center           na
          3         obs_freq_at 0ppm                 na
          3         ppm_at_center                    na
-         3         zero_order_phase_corr            -50.0           
-         3         first_order_phase_corr           0.0             
+         3         zero_order_phase_corr            90           
+         3         first_order_phase_corr           -180             
          3         nucleus                          13C
          3         label                            CO
          3         details                          na
