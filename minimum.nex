@@ -32,7 +32,7 @@ save_FID_sampling
         _FID_sampling_base.Param_tag
 
          2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
-         2         time_multiplier     0.000010         na 
+         2         time_multiplier     0.000100         na 
          2         time_offset         0                na
          2         time_units          sec              na
          2         phase_series_type   linear          ‘_Schedule.Phase_index_dim2’
@@ -77,7 +77,7 @@ Text field used to report additional information relevant to the software.
         _Vendor.Address                                                                                     
         _Vendor.Electronic_address                                                                                                                                                          
 
-        'John Exapmle - NMRbox' 'Example' 'john@example.edu'                                                 
+        'John Example - NMRbox' 'Example' 'john@example.edu'                                                 
     stop_                                                                                               
 
     loop_                                                                                               
