@@ -6,8 +6,8 @@ data_NUS_schedule
 save_NEX_format_information
 
         _NEX.Sf_category                   NEX_information
-        _NEX.Format_version                0.54
-        _NEX.Format_date                   2017-02-21
+        _NEX.Format_version                0.61
+        _NEX.Format_date                   2019-05-08
 	
 save_
 	
@@ -16,10 +16,11 @@ save_FID_sampling
 
     _FID_sampling.Sf_category              FID_sampling                                    
     _FID_sampling.ID                       1     
-    _FID_sampling.Software_ID		       2
-    _FID_sampling.Software_name		'schedule generator'                          
+    _FID_sampling.Software_ID		   2
+    _FID_sampling.Software_name		   'schedule generator'                          
 
     _FID_sampling.Experiment_name                          na
+    _FID_sampling.NMR_spec_expt_ID                         1          
     _FID_sampling.Layout_dimension_count                   3                                               
     _FID_sampling.Layout_aux_dimension_count               1                                                            
     _FID_sampling.Layout_hypercomplex_component_type       full                                            
@@ -34,35 +35,34 @@ save_FID_sampling
         _FID_sampling_base.Parameter_value
         _FID_sampling_base.Param_tag
 
-         2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
+         2         time_series_type    linear          '_Schedule.Time_index_dim2'
          2         time_multiplier     0.000125         na   
          2         time_offset         0                na 
          2         time_units          sec              na 
-         2         phase_series_type   lookup          ‘_Schedule.Phase_index_dim2’
+         2         phase_series_type   lookup          '_Schedule.Phase_index_dim2'
          2         phase_multiplier    0                na 
          2         phase_offset        0                na 
          2         phase_units         degree           na 
-     2         details             ?                na 
+         2         details             ?                na 
 
-         3         time_series_type    linear          ‘_Schedule.Time_index_dim3’
+         3         time_series_type    linear          '_Schedule.Time_index_dim3'
          3         time_multiplier     0.000250         na     
          3         time_offset         0                na 
          3         time_units          sec              na 
-         3         phase_series_type   value           ‘_Schedule.Phase_value_dim3’
+         3         phase_series_type   value           '_Schedule.Phase_value_dim3'
          3         phase_multiplier    0                na 
          3         phase_offset        0                na 
          3         phase_units         degree           na 
-3         details             na               na
+         3         details             na               na
  
-         AuxA      series_type         lookup          ‘_Schedule.AuxA_index’
+         AuxA      series_type         lookup          '_Schedule.AuxA_index'
          AuxA      name                tau              na
          AuxA      units               sec              na
 
     stop_
 
    
-    loop_       # This is the table that contains the NUS schedule
-                                                                                             
+    loop_       # This is the table that contains the NUS schedule                                                                                             
         _Schedule.FID_ID                                                                                                     
         _Schedule.Proc_FID_ID                                                                              
         _Schedule.Time_index_dim2     
@@ -82,9 +82,10 @@ save_FID_sampling
     stop_                                                                                               
 
     loop_             # The following loops provide information for tags that have
-                      # the type value set to ‘lookup’.
+                      # the type value set to 'lookup'.
 
         _Phase_value_dim2.List
+
           ip  ap
 
     stop_
@@ -97,10 +98,10 @@ save_FID_sampling
     stop_
 
     loop_                          # used for NUS-like 1D burst sampling
-        _Gap_schedule.name
-        _Gap_schedule.ordinal
-        _Gap_schedule.time_point_start
-        _Gap_schedule.time_point_end
+        _Gap_schedule.Name
+        _Gap_schedule.Ordinal
+        _Gap_schedule.Time_point_start
+        _Gap_schedule.Time_point_end
      
           gapScheduleA    1   255     300
           gapScheduleA    2   511     580
@@ -123,40 +124,40 @@ save_
 save_experiment_parameters          # This save frame is used to capture information
                                     # specific to an experiment that uses the NUS
                                     # schedule defined above.
-			
-   _NMR_spec_expt.Sf_category		?	# added
-   _NMR_spec_expt.ID			1	# added
-   _NMR_spec_expt.Name			HNCO	# added
-   
-   loop
-     _NMR_experiment_file.Name                     
-     _NMR_experiment_file.Type                    
-     _NMR_experiment_file.Directory_path         
-     _NMR_experiment_file.Byte_order             
-     _NMR_experiment_file.Bytes_per_data_point    
-     _NMR_experiment_file.File_header_size        
-     _NMR_experiment_file.Record_header_size      
-     _NMR_experiment_file.Record_trailer_size      
-     _NMR_experiment_file.Compression_algorithm   
-     _NMR_experiment_file.Details                 
 
-	HNCO	na	na	'little endian'	4	na	na	na	na
-	
-    stop_
-    
+    _NMR_spec_expt.Sf_category      NMR_spectrometer_expt          # added
+    _NMR_spec_expt.Name             HNCO                           # added
+    _NMR_spec_expt.ID               1                              # added
+
+    loop_
+      _NMR_experiment_file.Name                      
+      _NMR_experiment_file.Type                      
+      _NMR_experiment_file.Directory_path            
+      _NMR_experiment_file.Byte_order               
+      _NMR_experiment_file.Bytes_per_data_point      
+      _NMR_experiment_file.File_header_size          
+      _NMR_experiment_file.Record_header_size        
+      _NMR_experiment_file.Record_trailer_size       
+      _NMR_experiment_file.Compression_algorithm     
+      _NMR_experiment_file.Details                   
+
+    HNCO  na   na   'little endian'   4  na   na   na   na
+
 ;
 Text field used to report additional information relevant to the specific experiment.
 ;
+
+    stop_
 
     loop_          
       _Schedule_table_data_org.Param_ordinal 
       _Schedule_table_data_org.Param_tag             
 
-    1     ‘_Schedule.Time_index_dim2’
-    2     ‘_Schedule.Phase_index_dim2’
-    3     ‘_Schedule.AuxA_index’              
-    4     ‘_Schedule.Time_index_dim3’
-    5     ‘_Schedule.Phase_value_dim3’
+    1     '_Schedule.Time_index_dim2'
+    2     '_Schedule.Phase_index_dim2'
+    3     '_Schedule.AuxA_index'              
+    4     '_Schedule.Time_index_dim3'
+    5     '_Schedule.Phase_value_dim3'
 
     stop_
 
@@ -164,89 +165,91 @@ Text field used to report additional information relevant to the specific experi
                 # where the schedule is used in a separate loop. 
 
        _Spectral_param.Dim
+       _Spectral_param.Set_ID
        _Spectral_param.Parameter
        _Spectral_param.Value
 
-         1         size                             na 
-         1         spectral_width_Hz                5000
-         1         obs_freq_MHz_at_center           500
-         1         obs_freq_at 0ppm                 499.90
-         1         ppm_at_center                    4.55
-         1         zero_order_phase_corr            -50.0           
-         1         first_order_phase_corr           0.0             
-         1         nucleus                          1H
-         1         label                            HN
-         1         details                          na
+         1    1     size                             na 
+         1    1     spectral_width_Hz                5000
+         1    1     obs_freq_MHz_at_center           500
+         1    1     obs_freq_at 0ppm                 499.90
+         1    1     ppm_at_center                    4.55
+         1    1     zero_order_phase_corr            -50.0           
+         1    1     first_order_phase_corr           0.0             
+         1    1     nucleus                          1H
+         1    1     label                            HN
+         1    1     details                          na
 
-         2         size                             na 
-         2         spectral_width_Hz                na
-         2         obs_freq_MHz_at_center           na
-         2         obs_freq_at 0ppm                 na
-         2         ppm_at_center                    na
-         2         zero_order_phase_corr            0.0           
-         2         first_order_phase_corr           0.0             
-         2         nucleus                          15N
-         2         label                            N
-         2         details                          na
+         2    1     size                             na 
+         2    1     spectral_width_Hz                na
+         2    1     obs_freq_MHz_at_center           na
+         2    1     obs_freq_at 0ppm                 na
+         2    1     ppm_at_center                    na
+         2    1     zero_order_phase_corr            0.0           
+         2    1     first_order_phase_corr           0.0             
+         2    1     nucleus                          15N
+         2    1     label                            N
+         2    1     details                          na
 
-         3         size                             na 
-         3         spectral_width_Hz                na
-         3         obs_freq_MHz_at_center           na
-         3         obs_freq_at 0ppm                 na
-         3         ppm_at_center                    na
-         3         zero_order_phase_corr            90           
-         3         first_order_phase_corr           -180             
-         3         nucleus                          13C
-         3         label                            CO
-         3         details                          na
+         3    1     size                             na 
+         3    1     spectral_width_Hz                na
+         3    1     obs_freq_MHz_at_center           na
+         3    1     obs_freq_at 0ppm                 na
+         3    1     ppm_at_center                    na
+         3    1     zero_order_phase_corr            90.0          
+         3    1     first_order_phase_corr           -180.0             
+         3    1     nucleus                          13C
+         3    1     label                            CO
+         3    1     details                          na
 
   stop_
 
 save_
 
+##################################################
+
 save_sample_schedule_analysis
 	
-	_Sample_schedule_analysis.Sf_category           sample_schedule_analysis                                    
-	_Sample_schedule_analysis.FID_sampling_ID	       1
-      _Sample_schedule_analysis.Software_name         ’NEX converter’
-      _Sample_schedule_analysis.Software_ID            1
+      _Sample_schedule_analysis.Sf_category           sample_schedule_analysis                                    
+      _Sample_schedule_analysis.FID_sampling_ID	      1
+      _Sample_schedule_analysis.Software_name         'NEX converter'
+      _Sample_schedule_analysis.Software_ID           1
 			
-	loop_
-		_Schedule_analysis.Property
-		_Schedule_analysis.Value
+    loop_
+      _Schedule_analysis.Property
+      _Schedule_analysis.Value
 	
-		'FID_count'               20 
-		'FID_coverage'            0.0617283950617 
-		'Mean_evolution_time'     4.000000  
-		'Max_increment'           9.000000  
-		'PSR'                     na 
-		'iSNR'                    na
+    'FID_count'               20 
+    'FID_coverage'            0.0617283950617 
+    'Mean_evolution_time'     4.000000  
+    'Max_increment'           9.000000  
+    'PSR'                     na 
+    'iSNR'                    na
 
-       stop_                                                                                               
+    stop_                                                                                               
 
 save_
 
 ##################################################
-save_NEX_converter
 
-    _Software.Sf_category                              software                                        
-    _Software.Type                                    'schedule converter'                              
-    _Software.ID                                       1                                                 
-    _Software.Name                                    'NUS schedule converter'                 
-    _Software.Version                                  0.7                                               
-    _Software.DOI                                      na                                               
+save_NEX_converter
+    _Software.Sf_category          software                                        
+    _Software.Type                 'schedule converter'                              
+    _Software.ID                   1                                                 
+    _Software.Name                 'NUS schedule converter'                 
+    _Software.Version              0.7                                               
+    _Software.DOI                  na                                               
     _Software.Details                                 
 ;
 Text field used to report additional information relevant to the software.
 ;                              
                               
-
     loop_                                                                                               
         _Vendor.Name                                                                                        
         _Vendor.Address                                                                                     
         _Vendor.Electronic_address                                                                                                                                                          
 
-        'John - Example' 'Example.org' 'john@example.org' 
+        'John - Example' 'Example.org' 'john@example.org'
                                                 
     stop_                                                                                               
 
@@ -260,14 +263,15 @@ Text field used to report additional information relevant to the software.
 save_
 
 ##################################################
+
 save_schedule_generator
 
-    _Software.Sf_category                              software                                        
-    _Software.Type                                    'schedule generator'                              
-    _Software.ID                                       2                                                 
-    _Software.Name                                    ’schedule generator’                                               
-    _Software.Version                                  na                                               
-    _Software.DOI                                      na                                               
+    _Software.Sf_category            software                                        
+    _Software.Type                   'schedule generator'                              
+    _Software.ID                     2                                                 
+    _Software.Name                   'schedule generator'                                               
+    _Software.Version                na                                               
+    _Software.DOI                    na                                               
     _Software.Details                                  
 ;
 Text field used to report additional information relevant to the software.
@@ -278,13 +282,15 @@ Text field used to report additional information relevant to the software.
         _Vendor.Address                                                                                     
         _Vendor.Electronic_address                                                                                  
 
-        na na na                                                                                     
+        na na na
+                                                                                     
     stop_                                                                                               
 
     loop_                                                                                               
         _Task.Task                                                                                  
 
-        na                                                                                              
+        na 
+                                                                                             
     stop_                                                                                               
 
 save_
