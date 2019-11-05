@@ -1,27 +1,17 @@
 data_NUS_schedule
-
-##################################################
-save_NEX_format_information
-
-        _NEX.Sf_category                   NEX_information
-        _NEX.Format_version                0.54
-        _NEX.Format_date                   2017-02-21
-	
-save_
 	
 ##################################################
 save_FID_sampling
 
     _FID_sampling.Sf_category              FID_sampling                                    
-    _FID_sampling.ID                       1                           
+    _FID_sampling.ID                       1            
+    _FID_sampling.NEX_format_version       0.7                                   
+    _FID_sampling.File_generated_date      2019-11-05                     
 
     _FID_sampling.Experiment_name                          'NOESY-HSQC'
     _FID_sampling.Layout_dimension_count                   3                                                            
     _FID_sampling.Layout_hypercomplex_component_type       full                                            
-    _FID_sampling.Layout_transient_type                    uniform                                         
-    _FID_sampling.Expt_quadrature_class                    na  			# What is this?                                            
-    _FID_sampling.Expt_redfield_trick                      no                                             
-
+    _FID_sampling.Layout_transient_type                    uniform            
 
     loop_            # Keep schedule base parameters and values in one loop.
         _FID_sampling_base.Spectral_dim       
@@ -29,22 +19,22 @@ save_FID_sampling
         _FID_sampling_base.Parameter_value
         _FID_sampling_base.Param_tag
 
-         2         time_series_type    linear          ‘_Schedule.Time_index_dim2’
-         2         time_multiplier     0.0002600        na   
-         2         time_offset         0                na 
-         2         time_units          sec              na 
-         2         phase_series_type   linear          ‘_Schedule.Phase_index_dim2’
-         2         phase_multiplier    90               na 
-         2         phase_offset        0                na 
-         2         phase_units         degree           na 
-		 3         time_series_type    linear          ‘_Schedule.Time_index_dim3’
-         3         time_multiplier     0.0000840        na   
-         3         time_offset         0                na 
-         3         time_units          sec              na 
-         3         phase_series_type   linear          ‘_Schedule.Phase_index_dim3’
-         3         phase_multiplier    90               na 
-         3         phase_offset        0                na 
-         3         phase_units         degree           na 
+         2         time_series_type         linear          ‘_Schedule.Time_index_dim2’
+         2         time_multiplier          0.0002600        na   
+         2         time_offset              0                na 
+         2         time_units               sec              na 
+         2         quadrature_series_type   linear          ‘_Schedule.Quadrature_index_dim2’
+         2         quadrature_multiplier    90               na 
+         2         quadrature_offset        0                na 
+         2         quadrature_units         degree           na 
+	 3         time_series_type         linear          ‘_Schedule.Time_index_dim3’
+         3         time_multiplier          0.0000840        na   
+         3         time_offset              0                na 
+         3         time_units               sec              na 
+         3         quadrature_series_type   linear          ‘_Schedule.Quadrature_index_dim3’
+         3         quadrature_multiplier    90               na 
+         3         quadrature_offset        0                na 
+         3         quadrature_units         degree           na 
 
     stop_
 
@@ -52,10 +42,10 @@ save_FID_sampling
     loop_       # This is the table that contains the NUS schedule
                                                                                              
         _Schedule.FID_ID                                                                                   
-        _Schedule.Time_index_dim2     
-        _Schedule.Phase_index_dim2                                                                             
+        _Schedule.Time_index_dim2      
+        _Schedule.Quadrature_index_dim2                                                                             
         _Schedule.Time_index_dim3     
-        _Schedule.Phase_index_dim3 
+        _Schedule.Quadrature_index_dim3 
         _Schedule.Transient_count
         _Schedule.FID_weight                       
 
